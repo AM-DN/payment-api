@@ -1,0 +1,10 @@
+# application.yml
+server:
+  port: 8082
+spring:
+  profiles:
+    active: dev
+  application:
+    name: payment-api
+  main:
+    log-level: INFO
