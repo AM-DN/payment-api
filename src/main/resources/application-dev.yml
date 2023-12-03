@@ -7,9 +7,22 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
   datasource:
     url: jdbc:postgresql://localhost:5434/payment_db
     username: root
     password: root
     driver-class-name: org.postgresql.Driver
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 5000
+            readTimeout: 5000
+          stripeApi:
+            url: /create-payment-intent
+# stripe
+payment_gateway:
+  public_key: pk_test_51OFxveGokFJZIxdXLukO4raWLVjIEsxjkXNBdsXSmIFJIXNyc5cO6FF2kYxHZny0lkIo0frapfXUTxV2NC8vWHBh00IBuHga3t
+  secret_key: sk_test_51OFxveGokFJZIxdXx9RIcssuKXiHP2fFn1tk3pzggIxASioM0N76iWezSa4dM9TV8niVeXUGpVrpzTuJoLRedVdy00XpKgRLoZ
